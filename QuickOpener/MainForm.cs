@@ -32,7 +32,7 @@ namespace QuickOpener
             _history = new List<string>();
         }
 
-        [DllImport("user32", SetLastError=true)]
+        [DllImport("user32", SetLastError = true)]
         private static extern int RegisterHotKey(IntPtr hwnd, int id, int fsModifiers, int vk);
 
         [DllImport("user32", SetLastError = true)]
@@ -139,7 +139,7 @@ namespace QuickOpener
                     try
                     {
                         p.Start();
-                        
+
                         LogToScreen(command);
                         txtCommand.Text = "";
                         this.Hide();
@@ -152,7 +152,7 @@ namespace QuickOpener
                         _historyPointer--;
                     }
 
-                    
+
                 }
             }
             else if (e.KeyValue == (int)Keys.Escape)
@@ -163,7 +163,7 @@ namespace QuickOpener
             else if (e.KeyValue == (int)Keys.Up)
             {
                 // If "Up" was pressed...
-                if(_historyPointer > 0)
+                if (_historyPointer > 0)
                 {
                     txtCommand.Text = _history[--_historyPointer];
                     txtCommand.SelectAll();
@@ -179,6 +179,10 @@ namespace QuickOpener
                     txtCommand.SelectAll();
                 }
                 e.SuppressKeyPress = true;
+            }
+            else if (e.KeyValue == (int)Keys.Tab)
+            {
+
             }
         }
 
