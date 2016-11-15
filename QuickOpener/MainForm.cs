@@ -50,10 +50,9 @@ namespace QuickOpener
             string atomName = Guid.NewGuid().ToString();
             _hotKeyId = GlobalAddAtom(atomName);
 
-            // Register CTRL+ALT+Up
+            // Register CTRL+ALT+SPACE
             RegisterHotKey(Handle, _hotKeyId, MOD_CONTROL | MOD_ALT, (int)Keys.Space);
         }
-
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
