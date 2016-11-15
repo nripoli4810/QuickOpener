@@ -94,6 +94,19 @@ namespace QuickOpener
 
                     txtCommand.Text = "";
                 }
+                else if (string.Compare("refresh", txtCommand.Text.Trim(), true) == 0)
+                {
+                    // trigger the application to re-read the config file
+                    ConfigurationManager.RefreshSection("appSettings");
+
+                    LogToScreen("config refreshed");
+
+                    // Add the command to the history
+                    _history.Add(txtCommand.Text);
+                    _historyPointer = _history.Count;
+
+                    txtCommand.Text = "";
+                }
                 else
                 {
                     string path = "";
